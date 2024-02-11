@@ -1,10 +1,15 @@
 ﻿using System;
-namespace GameServerTest
+using System.Collections.Generic;
+using System.Text;
+
+namespace GameServer
 {
-    public class GameLogic
+    class GameLogic
     {
-        public GameLogic()
+        /// <summary>Runs all game logic.</summary>
+        public static void Update()
         {
+            ThreadManager.UpdateMain();
         }
     }
 }
