@@ -14,7 +14,6 @@ namespace GameServer
         public delegate void PacketHandler(int _fromClient, Packet _packet);
         public static Dictionary<int, PacketHandler> packetHandlers;
 
-
         private static TcpListener tcpListener;
         private static UdpClient udpListener;
 
@@ -119,16 +118,18 @@ namespace GameServer
             }
         }
 
+        /// <summary>Initializes all necessary server data.</summary>
         private static void InitializeServerData()
         {
             for (int i = 1; i <= MaxPlayers; i++)
             {
                 clients.Add(i, new Client(i));
             }
+
             packetHandlers = new Dictionary<int, PacketHandler>()
             {
                 { (int)ClientPackets.welcomeReceived, ServerHandle.WelcomeReceived },
-                { (int)ClientPackets.udpTestReceived, ServerHandle.UDPTestReceived }
+                { (int)ClientPackets.playerMovement, ServerHandle.PlayerMovement },
             };
             Console.WriteLine("Initialized packets.");
         }

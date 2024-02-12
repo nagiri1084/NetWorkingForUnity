@@ -32,7 +32,6 @@ namespace GameServer
 
                     _nextLoop = _nextLoop.AddMilliseconds(Constants.MS_PER_TICK); // Calculate at what point in time the next tick should be executed
 
-                    //CPU reduce
                     if (_nextLoop > DateTime.Now)
                     {
                         // If the execution time for the next tick is in the future, aka the server is NOT running behind
